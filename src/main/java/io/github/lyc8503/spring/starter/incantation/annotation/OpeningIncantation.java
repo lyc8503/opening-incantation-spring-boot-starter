@@ -1,4 +1,4 @@
-package io.github.lyc8503.spring.starter.incantation.annotations;
+package io.github.lyc8503.spring.starter.incantation.annotation;
 
 import io.github.lyc8503.spring.starter.incantation.config.CustomIncantationAutoConfiguration;
 import org.springframework.context.annotation.Import;
