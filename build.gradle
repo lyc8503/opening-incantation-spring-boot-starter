@@ -1,6 +1,7 @@
 plugins {
 	id 'java-library'
 	id 'maven-publish'
+	id 'signing'
 	id 'io.spring.dependency-management' version '1.1.0'
 
 }
@@ -28,14 +29,64 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
 }
 
+java {
+	withJavadocJar()
+	withSourcesJar()
+}
+
+javadoc {
+	options.addStringOption("charset", "UTF-8")
+	if (JavaVersion.current().isJava9Compatible()) {
+		options.addBooleanOption('html5', true)
+	}
+}
+
 publishing {
 	publications {
-		starter(MavenPublication) {
-			groupId = "${groupId}"
-			artifactId = 'gradle-spring-boot-starter'
-			version = "${version}"
-
+		mavenJava(MavenPublication) {
+			artifactId = 'opening-incantation-spring-boot-starter'
 			from components.java
+			pom {
+				name = 'opening-incantation-spring-boot-starter'
+				description = 'Some magic incantation for Spring Boot'
+				url = 'https://github.com/lyc8503/opening-incantation-spring-boot-starter'
+				licenses {
+					license {
+						name = 'GNU General Public License v3'
+						url = 'https://www.gnu.org/licenses/gpl-3.0.html'
+					}
+				}
+				developers {
+					developer {
+						id = 'lyc8503'
+						name = 'lyc8503'
+						email = 'me@lyc8503.site'
+					}
+				}
+				scm {
+					connection = 'scm:git:git://github.com/lyc8503/opening-incantation-spring-boot-starter'
+					developerConnection = 'scm:git:ssh://github.com/lyc8503/opening-incantation-spring-boot-starter.git'
+					url = '//github.com/lyc8503/opening-incantation-spring-boot-starter'
+				}
+			}
 		}
 	}
+	repositories {
+		maven {
+			name = "OSSRH"
+			if (project.version.toString().endsWith("-SNAPSHOT")) {
+				url = "https://s01.oss.sonatype.org/content/repositories/snapshots"
+			} else {
+				url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+			}
+			credentials {
+				username = findProperty("ossrhUsername") ?: System.getenv("OSSRH_USERNAME")
+				password = findProperty("ossrhPassword") ?: System.getenv("OSSRH_PASSWORD")
+			}
+		}
+	}
+}
+
+signing {
+	sign(publishing.publications.mavenJava)
 }
