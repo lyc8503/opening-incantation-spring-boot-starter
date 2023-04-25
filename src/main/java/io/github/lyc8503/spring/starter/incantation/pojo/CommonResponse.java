@@ -1,11 +1,11 @@
-package me.lyc8503.spring.starter.incantation.pojo;
+package io.github.lyc8503.spring.starter.incantation.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.github.lyc8503.spring.starter.incantation.exception.BizException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import me.lyc8503.spring.starter.incantation.exception.BizException;
-import me.lyc8503.spring.starter.incantation.exception.ErrorType;
+import io.github.lyc8503.spring.starter.incantation.exception.ErrorType;
 
 @Data
 @AllArgsConstructor(access = AccessLevel.PRIVATE)

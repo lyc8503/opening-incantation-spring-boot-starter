@@ -1,9 +1,9 @@
-package me.lyc8503.spring.starter.incantation.controller;
+package io.github.lyc8503.spring.starter.incantation.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import me.lyc8503.spring.starter.incantation.exception.BizException;
-import me.lyc8503.spring.starter.incantation.exception.CommonErrorType;
-import me.lyc8503.spring.starter.incantation.pojo.CommonResponse;
+import io.github.lyc8503.spring.starter.incantation.exception.BizException;
+import io.github.lyc8503.spring.starter.incantation.exception.CommonErrorType;
+import io.github.lyc8503.spring.starter.incantation.pojo.CommonResponse;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;

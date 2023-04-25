@@ -1,4 +1,4 @@
-package me.lyc8503.spring.starter.incantation.exception;
+package io.github.lyc8503.spring.starter.incantation.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package me.lyc8503.spring.starter.incantation.controller;
+package io.github.lyc8503.spring.starter.incantation.controller;
 
 
-import me.lyc8503.spring.starter.incantation.pojo.CommonResponse;
+import io.github.lyc8503.spring.starter.incantation.pojo.CommonResponse;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
